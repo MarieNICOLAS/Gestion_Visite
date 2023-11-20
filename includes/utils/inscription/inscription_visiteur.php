@@ -1,6 +1,6 @@
 <?php
 $userRole = 'visiteur'; // Définissez le rôle ici
-require('C:/wamp64/www/gestionnaire_visites/includes/utils/function.php');
+require('C:/wamp64/www/gestion_visite/includes/utils/function.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">

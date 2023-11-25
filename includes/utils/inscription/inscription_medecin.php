@@ -7,12 +7,11 @@ require('C:/wamp64/www/gestion_visite/includes/utils/function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription Medecin</title>
+    <title>Ajout d'un nouveau medecin</title>
 </head>
 <body>
     <a href="..\..\..\..\Gestion_Visite\index.php">Accueil</a>
-    <h1>Inscription</h1>
-    <h2>Formulaire d'inscription <?php echo ucfirst($userRole);?></h2>
+    <h1>Formulaire d'enregistement <?php echo ucfirst($userRole);?></h1>
 
     <form action="traitement.php" method="POST">
         <input type="hidden" name="role" value="<?php echo $userRole; ?>">

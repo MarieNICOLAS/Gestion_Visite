@@ -6,7 +6,7 @@
     <title>Traitement des données</title>
 </head>
 <body>
-    <header><a href="../../../../Gestion_Visite/index.php">Accueil</a></header>
+    <header><?php include '../../view/header.php';?></header>
 <?php
 // Vérifie si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $host = 'localhost:3306';
     $dbname = 'gestion_visite_db';
     $username = 'root';
-    $password = 'password';
+    $password = '';
 
     try {
         $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

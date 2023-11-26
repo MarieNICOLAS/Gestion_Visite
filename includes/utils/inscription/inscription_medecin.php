@@ -1,6 +1,6 @@
 <?php
 $userRole = 'medecin'; // Définissez le rôle ici
-require('C:/wamp64/www/gestion_visite/includes/utils/function.php');
+include '../function.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">

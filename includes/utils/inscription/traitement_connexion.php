@@ -8,7 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $host = 'localhost:3306';
     $dbname = 'gestion_visite_db';
     $username = 'root';
-    $password = 'password';
+    $password = '';
+
 
     try {
         $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

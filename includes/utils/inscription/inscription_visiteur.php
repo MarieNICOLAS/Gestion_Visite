@@ -1,6 +1,6 @@
 <?php
 $userRole = 'visiteur'; // Définissez le rôle ici
-require('C:/wamp64/www/gestion_visite/includes/utils/function.php');
+require('../function.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,7 +10,7 @@ require('C:/wamp64/www/gestion_visite/includes/utils/function.php');
     <title>Inscription Visiteur</title>
 </head>
 <body>
-    <header><?php include('includes/view/header.php'); ?></header>
+    <header><?php include '../../view/header.php';?></header>
     <h1>Inscription</h1>
     <h2>Formulaire d'inscription <?php echo ucfirst($userRole);?></h2>
 

@@ -5,7 +5,7 @@ session_start();
 $host = 'localhost:3306';
 $dbname = 'gestion_visite_db';
 $username = 'root';
-$password = 'password';
+$password = '';
 
 try {
     $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -39,10 +39,11 @@ $medicaments = $stmtMedicaments->fetchAll(PDO::FETCH_ASSOC);
     <title>Nouveau Rapport de Visite</title>
 </head>
 <body>
+    <header><?php include '../../view/header.php';?></header>
     <h1>Nouveau Rapport de Visite</h1>
 
     <form action="traitement_rapport.php" method="POST">
-        <!-- Liste déroulante des médecins -->
+        
         <label for="medecin">Sélectionnez un médecin :</label>
         <select id="medecin" name="medecin" required>
             <?php foreach ($medecins as $medecin) : ?>
@@ -51,7 +52,7 @@ $medicaments = $stmtMedicaments->fetchAll(PDO::FETCH_ASSOC);
         </select>
         <br>
 
-        <!-- Liste déroulante des médicaments -->
+        
         <label for="medicament">Sélectionnez un médicament :</label>
         <select id="medicament" name="medicament" required>
             <?php foreach ($medicaments as $medicament) : ?>
@@ -64,27 +65,21 @@ $medicaments = $stmtMedicaments->fetchAll(PDO::FETCH_ASSOC);
         <input type="number" id="quantite" name="quantite"  max="2000" required>
         <br>
 
-        <!-- Champs de saisie pour la date -->
+        
         <label for="date">Date :</label>
         <input type="date" id="date" name="date" required>
         <br>
 
-        <!-- Champ de saisie pour le motif de visite -->
+        
         <label for="motif">Motif de visite :</label>
         <input type="text" id="motif" name="motif" required>
         <br>
 
-        <!-- Champ de saisie pour le bilan de visite -->
+        
         <label for="bilan">Bilan de visite :</label>
         <textarea id="bilan" name="bilan" rows="4" required></textarea>
 
-        <!-- Ajoutez d'autres champs selon vos besoins -->
         <br>
-
-        <!-- Champ de saisie pour la quantité de médicament -->
-
-
-        <!-- Bouton de validation -->
         <input type="submit" value="Valider">
     </form>
 </body>

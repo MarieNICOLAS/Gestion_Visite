@@ -3,7 +3,7 @@
 $host = 'localhost:3306';
 $dbname = 'gestion_visite_db';
 $username = 'root';
-$password = 'password';
+$password = '';
 
 try {
     $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -27,7 +27,7 @@ $dates = $statement->fetchAll(PDO::FETCH_COLUMN);
     <title>Liste des Dates de Rapports</title>
 </head>
 <body>
-
+    <header><?php include '../../view/header.php';?></header>
     <h1>Liste des Dates de Rapports</h1>
 
     <form action="" method="post">

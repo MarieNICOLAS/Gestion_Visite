@@ -6,7 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Changement bien enregistrer</p>
-    <a href="valide.php">Revenir a l'accueil</a>
+    <header><?php include '../../view/header.php';?></header>
+    <h1>Rapport</h1>
+    <p>Changement du rapport enregistré</p>
+    <a href="nouveau_rapport.php">Nouveau rapport</a>
+    <br>
+    <a href="date_rapport.php">Modifier un rapport</a>
 </body>
 </html>

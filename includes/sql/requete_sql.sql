@@ -1,8 +1,5 @@
 CREATE DATABASE gestion_visite_db;
 
-
-SELECT gestion_visite_db;
-
 CREATE TABLE Personne (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(255),

@@ -6,7 +6,7 @@
     <title>Espace Visiteur</title>
 </head>
 <body>
-    <a href="..\..\..\..\Gestion_Visite\index.php">Accueil</a>
+    <header><?php include '../../view/header.php';?></header>
     <h1>Espace Visiteur</h1>
     
     <ul>

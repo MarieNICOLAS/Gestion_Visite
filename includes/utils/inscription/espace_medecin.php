@@ -6,7 +6,7 @@
     <title>Espace Médecin</title>
 </head>
 <body>
-    <header><?php include('../../view/header.php'); ?></header>
+    <header><?php include '../../view/header.php';?></header>
     <h1>Espace Médecin</h1>
     
     <ul>

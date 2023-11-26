@@ -2,7 +2,7 @@
 $host = 'localhost:3306';
 $dbname = 'gestion_visite_db';
 $username = 'root';
-$password = 'password';
+$password = '';
 
 try {
     $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
         <title>Modifier Rapport</title>
     </head>
     <body>
-
+        <header><?php include '../../view/header.php';?></header>
         <h1>Modifier Rapport</h1>
 
         <form action="enregistrer_modification.php" method="post">

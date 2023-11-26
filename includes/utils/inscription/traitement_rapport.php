@@ -5,7 +5,7 @@ session_start();
 $host = 'localhost:3306';
 $dbname = 'gestion_visite_db';
 $username = 'root';
-$password = 'password';
+$password = '';
 
 try {
     $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -32,7 +32,7 @@ $quantite = isset($_POST['quantite']) ? $_POST['quantite'] : null;
 
 // Enregistrez le rapport dans la table Rapport
 $sqlInsertRapport = "INSERT INTO Rapport (date, idVisiteur, idMedecin, motif, bilan) 
-                     VALUES (:date, :idVisiteur, :idMedecin, :motif, :bilan)";
+                    VALUES (:date, :idVisiteur, :idMedecin, :motif, :bilan)";
 $stmtInsertRapport = $dbh->prepare($sqlInsertRapport);
 $stmtInsertRapport->bindParam(':date', $date);
 $stmtInsertRapport->bindParam(':idVisiteur', $_SESSION['idVisiteur']);
@@ -53,7 +53,7 @@ if (!empty($idMedicament)) {
     $stmtInsertOffrir->execute();
 }
 
-// Redirige l'utilisateur vers une page de confirmation ou une autre page de votre choix
+
 header("Location: rapport_valide.php?idRapport=$idRapport");
 exit();
 ?>

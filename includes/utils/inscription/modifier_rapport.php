@@ -59,6 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
 
             <h2>Médicaments offerts :</h2>
             <?php
+            
+            
             foreach ($medicaments as $medicament) {
                 echo "<label for='medicament_{$medicament['id']}'>{$medicament['nomCommercial']} - Quantité :</label>";
                 echo "<input type='text' name='medicament[{$medicament['id']}]' value='{$medicament['quantite']}'>";

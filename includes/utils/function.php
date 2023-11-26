@@ -7,7 +7,7 @@
             'prenom' => 'Prénom',
             'adresse' => 'Adresse',
             'telephone' => 'Téléphone',
-            'login' => 'Login',
+            'login' => 'Email',
             'motDePasse' => 'Mot de passe'
         ];
         

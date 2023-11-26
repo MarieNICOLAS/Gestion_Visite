@@ -10,7 +10,7 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.php">Accueil</a></li>
+                <li><a href="\Gestion_Visite\index.php">Accueil</a></li>
                 <!-- Vous pouvez ajouter d'autres liens de navigation ici si nécessaire -->
             </ul>
         </nav>

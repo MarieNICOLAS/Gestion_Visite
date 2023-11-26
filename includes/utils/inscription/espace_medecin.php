@@ -10,8 +10,7 @@
     <h1>Espace Médecin</h1>
     
     <ul>
-        <li><a href="connexion_medecin.php">Connexion</a></li>
-        <li><a href="inscription_medecin.php">Inscription</a></li>
+        <li><a href="inscription_medecin.php">Ajouter un medecin</a></li>
     </ul>
 </body>
 </html>

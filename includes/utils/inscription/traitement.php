@@ -6,7 +6,7 @@
     <title>Traitement des données</title>
 </head>
 <body>
-    <header><a href="../../../../index.php">Accueil</a></header>
+    <header><a href="../../../../Gestion_Visite/index.php">Accueil</a></header>
 <?php
 // Vérifie si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $host = 'localhost:3306';
     $dbname = 'gestion_visite_db';
     $username = 'root';
-    $password = '';
+    $password = 'password';
 
     try {
         $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -45,16 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Si c'est un visiteur, insérez les données dans la table Visiteur
             $codePostal = $_POST['codePostal'];
             $ville = $_POST['ville'];
-            $dateEmbauche = $_POST['dateEmbauche'];
-
-            $sql = "INSERT INTO Visiteur (id, login, motDePasse, codePostal, ville, dateEmbauche) VALUES (:id, :login, :motDePasse, :codePostal, :ville, :dateEmbauche)";
+            //$dateEmbauche = $_POST['dateEmbauche'];
+                //rajouter date embauche   $sql = "INSERT INTO Visiteur (id, login, motDePasse, codePostal, ville, dateEmbauche) VALUES (:id, :login, :motDePasse, :codePostal, :ville, :dateEmbauche)";
+            $sql = "INSERT INTO Visiteur (id, login, motDePasse, codePostal, ville) VALUES (:id, :login, :motDePasse, :codePostal, :ville)";
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':id', $personneId);
             $stmt->bindParam(':login', $login);
             $stmt->bindParam(':motDePasse', $motDePasse);
             $stmt->bindParam(':codePostal', $codePostal);
             $stmt->bindParam(':ville', $ville);
-            $stmt->bindParam(':dateEmbauche', $dateEmbauche);
+           // $stmt->bindParam(':dateEmbauche', $dateEmbauche);
             $stmt->execute();
         } elseif ($userRole === 'medecin') {
             // Si c'est un médecin, insérez les données dans la table Medecin

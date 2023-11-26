@@ -10,18 +10,18 @@
         <h1>Accueil</h1>    
 
         <ul>
-            <li><a href="/includes/utils/inscription/espace_visiteur.php">Espace Visiteur</a></li>
-            <li><a href="/includes/utils/inscription/espace_medecin">Espace Médecin</a></li>
+            <li><a href="\Gestion_Visite\includes\utils\inscription\espace_visiteur.php">Espace Visiteur</a></li>
+            <li><a href="\Gestion_Visite\includes\utils\inscription\espace_medecin.php">Espace Médecin</a></li>
         </ul>
     </body>
 </html>
 
 <?php
      // Configuration de la connexion à la base de données
-     $host = 'localhost:3306'; // Adresse du serveur de base de données
+     $host = 'localhost'; // Adresse du serveur de base de données
      $dbname = 'gestion_visite_db'; // Nom de la base de données
      $username = 'root'; // Nom d'utilisateur de la base de données
-     $password = ''; // Mot de passe de la base de données
+     $password = 'password'; // Mot de passe de la base de données
     
     try {
         $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

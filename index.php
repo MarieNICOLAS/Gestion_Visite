@@ -1,34 +1,36 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Application - Gestion de visites médicales</title>
-        </head>
-    <body>
-        <header><?php include('includes/view/header.php'); ?></header>
-        <h1>Accueil</h1>    
-
-        <ul>
-            <li><a href="\Gestion_Visite\includes\utils\inscription\espace_visiteur.php">Espace Visiteur</a></li>
-            <li><a href="\Gestion_Visite\includes\utils\inscription\espace_medecin.php">Espace Médecin</a></li>
-        </ul>
-    </body>
-</html>
-
 <?php
-     // Configuration de la connexion à la base de données
-     $host = 'localhost'; // Adresse du serveur de base de données
-     $dbname = 'gestion_visite_db'; // Nom de la base de données
-     $username = 'root'; // Nom d'utilisateur de la base de données
-     $password = 'password'; // Mot de passe de la base de données
-    
-    try {
-        $dbh = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        // Définir l'attribut PDO pour afficher les erreurs (utile pour le débogage)
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connexion à la base de données établie avec succès.";
-    } catch (PDOException $e) {
-        die("Erreur de connexion à la base de données : " . $e->getMessage());
+require_once 'config/databases.php';
+
+// Analyser l'URL pour déterminer le contrôleur et l'action à utiliser
+$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$segments = explode('/', trim($url, '/'));
+
+// Obtenir le nom du contrôleur et l'action (méthode)
+$controllerName = !empty($segments[0]) ? $segments[0] : 'Home';
+$actionName = isset($segments[1]) ? $segments[1] : 'index';
+
+// Capitaliser le premier caractère du nom du contrôleur (convention de nommage)
+$controllerName = ucfirst(strtolower($controllerName)) . 'Controller';
+
+// Chemin vers le fichier du contrôleur
+$controllerFile = "controllers/" . $controllerName . ".php";
+
+// Vérifier si le fichier du contrôleur existe
+if (file_exists($controllerFile)) {
+    require_once $controllerFile;
+
+    // Instancier le contrôleur
+    $controller = new $controllerName();
+
+    // Vérifier si l'action (méthode) existe dans le contrôleur
+    if (method_exists($controller, $actionName)) {
+        call_user_func_array([$controller, $actionName], []);
+    } else {
+        // Gérer l'erreur - méthode non trouvée
+        echo "Erreur 404: Méthode non trouvée";
     }
+} else {
+    // Gérer l'erreur - contrôleur non trouvé
+    echo "Erreur 404: Contrôleur non trouvé";
+}
 ?>

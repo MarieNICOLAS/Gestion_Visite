@@ -6,7 +6,7 @@
     <title>Traitement des données</title>
 </head>
 <body>
-    <header><?php include '../../view/header.php';?></header>
+    <header><a href="../../index.php"></a></header>
 <?php
 // Vérifie si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $prenom = $_POST['prenom'];
     $adresse = $_POST['adresse'];
     $telephone = $_POST['telephone'];
-    $login = $_POST['login'];
+    $login = $_POST['email'];
     $motDePasse = $_POST['motDePasse'];
 
     // Connectez-vous à la base de données
@@ -60,12 +60,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Si c'est un médecin, insérez les données dans la table Medecin
             $specialiteComplementaire = $_POST['specialiteComplementaire'];
             $departement = $_POST['departement'];
+            $email = $_POST['email'];
 
-            $sql = "INSERT INTO Medecin (id, specialiteComplementaire, departement) VALUES (:id, :specialiteComplementaire, :departement)";
+            $sql = "INSERT INTO Medecin (id, specialiteComplementaire, departement, email) VALUES (:id, :specialiteComplementaire, :departement, :email)";
             $stmt = $dbh->prepare($sql);
             $stmt->bindParam(':id', $personneId);
             $stmt->bindParam(':specialiteComplementaire', $specialiteComplementaire);
             $stmt->bindParam(':departement', $departement);
+            $stmt->bindParam(':email', $email);
             $stmt->execute();
         }
 
@@ -75,6 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+<a href="inscription_medecin.php"><br>Ajouter un autre médecin</a>
 
 </body>
 </html>

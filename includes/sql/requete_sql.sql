@@ -23,6 +23,7 @@ CREATE TABLE Medecin (
     id INT PRIMARY KEY,
     specialiteComplementaire VARCHAR(255),
     departement VARCHAR(10),
+    email VARCHAR(50),
     FOREIGN KEY (id) REFERENCES Personne(id)
 );
 

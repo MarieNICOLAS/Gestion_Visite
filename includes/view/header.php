@@ -11,6 +11,7 @@
         <nav>
             <a href="../../../index.php">Accueil</a>
             <a href="/includes/utils/inscription/connexion_visiteur.php">Connexion</a>
+            <a href="/includes/utils/inscription/valide.php">Mon espace</a>
             
             
         </nav>
